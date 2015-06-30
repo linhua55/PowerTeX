@@ -14,6 +14,8 @@
 \usepackage{enumitem} % 枚举设置宏包
 \usepackage{tikz} % 画图宏包
 \usepackage[europeanresistors]{circuitikz} % 电路绘制宏包
+\usepackage[labelsep=quad]{caption} %标题宏包
+\usepackage{enumitem} %枚举环境宏包
 
 % 宏包设置
 % 页眉页脚样式
@@ -79,7 +81,31 @@
 
 \chapter{基于稳态模型的异步电动机调速系统}
 
-\begin{figure}
+\section{思考题}
+
+\section{习题}
+\subsection{第1题}
+\subsubsection{题目}
+一台三相笼型异步电动机的铭牌数据为：额定电压$U_{\mathrm{N}}=380\mathrm{V}$，额定转速$n_{\mathrm{N}}=960\mathrm{r/min}$，额定频率$f_{\mathrm{N}}=50\mathrm{Hz}$，定子绕组为Y联结。实验测得定子电阻$R_{\mathrm{s}}=0.35\Omega$，定子漏感$L_{\mathrm{ls}}=0.006H$，定子绕组产生气隙主磁通的等效电感$L_{\mathrm{m}}=0.26\mathrm{H}$，转子电阻$R_r^{'}=0.5\Omega$，转子漏感$L_{r}^{'}=0.007H$，转子参数已折合到定子侧，忽略铁心损耗。
+
+% \begin{enumerate}[leftmargin=46pt]
+% \renewcommand{\labelenumi}{(\theenumi)}
+% \item 画出异步电动机T形等效电路和简化等效电路。
+% \item 求额定运行时的转差率$s_{\mathrm{N}}$，定子额定电流$I_{\mathrm{sN}}$和额定电磁转矩。
+% \item 定子电压和频率均为额定值时，理想空载时的励磁电流$I_0$。
+% \item 定子电压和频率均为额定值时，临界转差率$s_{\mathrm{m}}$和临界转矩$T_{\mathrm{m}}$，并画出该异步电机的机械特性。
+% \end{enumerate}
+
+(1) 画出异步电动机T形等效电路和简化等效电路。
+
+(2) 求额定运行时的转差率$s_{\mathrm{N}}$，定子额定电流$I_{\mathrm{sN}}$和额定电磁转矩。
+
+(3) 定子电压和频率均为额定值时，理想空载时的励磁电流$I_0$。
+
+(4) 定子电压和频率均为额定值时，临界转差率$s_{\mathrm{m}}$和临界转矩$T_{\mathrm{m}}$，并画出该异步电机的机械特性。
+\subsubsection{解答}
+\begin{figure}[htbp]
+\centering
 \begin{circuitikz}[scale=1.2]
 \draw 
 (0,0) node[anchor=east] {}
@@ -96,6 +122,7 @@ to [L=$L_{lr}^{'}$, i<=$\dot{I_r^{'}}$] (8,3)
 \draw [->] (0.2,2.5) -- node[right]{$\dot{U_s}$} (0.2,0.5);
 \end{scope}
 \end{circuitikz}
+\caption{异步电机T型等效电路图}\label{Fig:TCircuit}
 \end{figure}
 
 \bibliographystyle{thubib}
