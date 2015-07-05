@@ -122,7 +122,10 @@
   \caption{异步电机T形等效电路图}\label{Fig:TCircuit}
 \end{figure}
 
-(2)额定运行时的转差率为$s_{\mathrm{N}}=\dfrac{1000-960}{1000}=0.04$。
+(2)额定运行时的转差率为
+\begin{equation}
+  s_{\mathrm{N}}=\dfrac{1000-960}{1000}=0.04
+\end{equation}
 
 定子额定电流为
 \begin{equation}
@@ -177,6 +180,41 @@
 因此，电压下降将导致气隙磁通减小。
 
 对恒转矩负载而言，调速范围为额定电压下稳态运行时的转差率对应的转速与临界转差率对应的转速之间。
+
+\subsection{第3题}
+\subsubsection{题目}
+异步电动机参数如第1题所示，定子每相绕组匝数$N_{\mathrm{s}}=125$，定子基波绕组系数$k_{\mathrm{N}_{\mathrm{s}}}=0.92$，定子电压和频率均为额定值。
+
+(1) 忽略定子漏阻抗，每极气隙磁通量$\Phi_{\mathrm{m}}$和气隙磁通在定子每相中感应电动势的有效值$E_\mathrm{g}}$。
+
+(2) 考虑定子漏阻抗，求理想空载和额定负载时的$\Phi_{\mathrm{m}}$和$E_\mathrm{g}}$。
+
+(3) 比较上述三种情况下，$\Phi_{\mathrm{m}}$和$E_\mathrm{g}}$的差异，并说明原因。
+\subsubsection{解答}
+(1) 忽略定子漏阻抗，则有 $E_{\mathrm{g}} = U_{\mathrm{s}} = 380\ \mathrm{V}$，每极气隙磁通量为
+
+\begin{equation}
+  \Phi_{\mathrm{m}} = \frac{E_{\mathrm{g}}}{4.44f_1N_{\mathrm{s}}k_{\mathrm{N}_{\mathrm{s}}}}} = 0.0149\ \mathrm{(Wb)}
+\end{equation}
+
+(2) 考虑定子漏阻抗时，理想空载情况下，定子每相感应电动势为
+\begin{equation}
+  \left| E_{\mathrm{g}} \right|=\left| \dfrac{\mathrm{j}X_{\mathrm{m}}}{R_{\mathrm{s}}+\mathrm{j}X_{\mathrm{s}}+\mathrm{j}X_{\mathrm{m}}} U_{\mathrm{s}} \right| = 371.42\ (\mathrm{V})  
+\end{equation}
+
+每极气隙磁通量为
+\begin{equation}
+  \Phi_{\mathrm{m}} = \frac{\left|E_{\mathrm{g}}\right|}{4.44f_1N_{\mathrm{s}}k_{\mathrm{N}_{\mathrm{s}}}}} = 0.0145\ \mathrm{(Wb)}
+\end{equation}
+
+额定负载情况下，定子每相感应电动势为
+\begin{equation}
+  \left| E_{\mathrm{g}} \right| = \left|{\dfrac{\mathrm{j}\omega_1L_{\mathrm{m}} \sslash (R_{\mathrm{r}}^{'}+\mathrm{j}\omega_1L_{\mathrm{lr}})U_{\mathrm{s}}}{R_{\mathrm{s}}+\mathrm{j}\omega_1L_{\mathrm{ls}}+\mathrm{j}\omega_1L_{\mathrm{m}} \sslash (R_{\mathrm{r}}^{'}+\mathrm{j}\omega_1L_{\mathrm{lr}})}} \right| = 350.33\ \mathrm{V}
+\end{equation}
+
+\begin{equation}
+  \Phi_{\mathrm{m}} = \frac{\left|E_{\mathrm{g}}\right|}{4.44f_1N_{\mathrm{s}}k_{\mathrm{N}_{\mathrm{s}}}}} = 0.0137\ \mathrm{(Wb)}
+\end{equation}
 
 \bibliographystyle{thubib}
 \bibliography{refs}
