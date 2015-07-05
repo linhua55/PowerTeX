@@ -45,7 +45,20 @@ T_eN = P_eN / omega_m; % 额定电磁转矩
 % 理想空载励磁电流 不计损耗 异步机转速为同步速 s=0
 I_m0N = U_N / (Z_r + Z_m); % 理想空载励磁电流
 
-% 临界转差率 临界转矩
+% 临界转差率 临界转矩 (忽略励磁支路)
+s_m = R_r / (sqrt(R_s^2 + omega_1^2*(L_ls+L_lr)^2)); % 临界转差率
+T_em = 3*p*U_N^2 / (2*omega_1*(R_s+sqrt(R_s^2+omega_1^2*(L_ls+L_lr)^2))); % 临界转矩
 
 % 机械特性曲线
+s_tran = 0:0.001:1;
+T_tran = 3*p*U_N^2*R_r.*s_tran ./ (omega_1*((s_tran*R_s+R_r).^2+s_tran.^2*omega_1^2*(L_ls+L_lr)^2));
+hf1 = figure(1);
+set(hf1,'Position',[50 50 400 250]);
 
+h = plot(T_tran,1-s_tran);
+set(gca,'FontSize',12); % 字号设置
+set(gca,'FontName','Times New Roman'); % 字体设置
+set(h,'LineWidth',2); % 线宽设置
+xlabel('电磁转矩{\it T_e}(N·m)','FontSize',12,'FontName','Times New Roman');
+set(gca,'YLim',[0,1.05]);
+ylabel('转速{\it n}(p.u.)','FontSize',12,'FontName','Times New Roman');

@@ -10,3 +10,5 @@
 /master.fdb_latexmk
 /master.fls
 /.IMCal.m.swp
+*.m~
+/.DS_Store

@@ -1,4 +1,3 @@
-%!TEX program = xelatex
 \documentclass[12pt, a4paper, UTF8, fontset=adobe, oneside]{ctexbook} % oneside 去掉所有空白页
 
 \linespread{1.3} % 行距设置
@@ -15,7 +14,10 @@
 \usepackage{tikz} % 画图宏包
 \usepackage[europeanresistors]{circuitikz} % 电路绘制宏包
 \usepackage[labelsep=quad]{caption} %标题宏包
-\usepackage{enumitem} %枚举环境宏包
+% \usepackage{enumitem} %枚举环境宏包
+\usepackage{graphicx} % 插图宏包
+\usepackage{stmaryrd} % 平行符号
+
 
 % 宏包设置
 % 页眉页脚样式
@@ -28,6 +30,8 @@
 % 章节样式设置
 \CTEXsetup[name={第,部分},number={\arabic{part}}]{part}
 \CTEXsetup[name={第,章},number={\arabic{chapter}}]{chapter}
+% 插图目录
+\graphicspath{{Figures/}}
 % 文档设置
 \renewcommand\contentsname{目录} % 中文 目录
 \renewcommand\bibname{参考文献} % 中文 参考文献
@@ -86,7 +90,7 @@
 \section{习题}
 \subsection{第1题}
 \subsubsection{题目}
-一台三相笼型异步电动机的铭牌数据为：额定电压$U_{\mathrm{N}}=380\mathrm{V}$，额定转速$n_{\mathrm{N}}=960\mathrm{r/min}$，额定频率$f_{\mathrm{N}}=50\mathrm{Hz}$，定子绕组为Y联结。实验测得定子电阻$R_{\mathrm{s}}=0.35\Omega$，定子漏感$L_{\mathrm{ls}}=0.006H$，定子绕组产生气隙主磁通的等效电感$L_{\mathrm{m}}=0.26\mathrm{H}$，转子电阻$R_r^{'}=0.5\Omega$，转子漏感$L_{r}^{'}=0.007H$，转子参数已折合到定子侧，忽略铁心损耗。
+一台三相笼型异步电动机的铭牌数据为：额定电压$U_{\mathrm{N}}=380\ \mathrm{V}$，额定转速$n_{\mathrm{N}}=960\ \mathrm{r/min}$，额定频率$f_{\mathrm{N}}=50\ \mathrm{Hz}$，定子绕组为Y联结。实验测得定子电阻$R_{\mathrm{s}}=0.35\ \Omega$，定子漏感$L_{\mathrm{ls}}=0.006\ \mathrm{H}$，定子绕组产生气隙主磁通的等效电感$L_{\mathrm{m}}=0.26\ \mathrm{H}$，转子电阻$R_r^{'}=0.5\ \Omega$，转子漏感$L_{r}^{'}=0.007\ \mathrm{H}$，转子参数已折合到定子侧，忽略铁心损耗。
 
 (1) 画出异步电动机T形等效电路和简化等效电路。
 
@@ -96,7 +100,7 @@
 
 (4) 定子电压和频率均为额定值时，临界转差率$s_{\mathrm{m}}$和临界转矩$T_{\mathrm{m}}$，并画出该异步电机的机械特性。
 \subsubsection{解答}
-(1) 异步电机T形等效电路如图\ref{Fig:TCircuit}所示。
+(1) 异步电机T形等效电路如图~\ref{Fig:TCircuit}所示。
 \begin{figure}[htbp]
 \centering
 \begin{circuitikz}[scale=1.2]
@@ -118,17 +122,45 @@ to [L=$L_{lr}^{'}$, i<=$\dot{I_r^{'}}$] (8,3)
 \caption{异步电机T形等效电路图}\label{Fig:TCircuit}
 \end{figure}
 
-(2) 
+(2)额定运行时的转差率为$s_N=\dfrac{1000-960}{1000}=0.04$。
 
-(3)
+定子额定电流为
+\begin{equation}
+\left| I_s \right| = \left| {\dfrac{U_s}{R_s+\mathrm{j}\omega_1L_{ls}+\mathrm{j}\omega_1L_m \sslash (R_r^{'}+\mathrm{j}\omega_1L_{lr})}} \right| = 28.66\ \mathrm{A}
+\end{equation}
 
-(4)
+额定电磁转矩为（忽略励磁电流）
+\begin{equation}
+T_e = \dfrac{3pU_s^2R_r^{'}s}{\omega_1[(sR_s+R_r^{'})^2+s^2\omega_1^2(L_{ls}+L_{lr})^2]} = 272.84\ (\mathrm{N·m})
+\end{equation}
+
+(3)理想空载时的励磁电流为
+\begin{equation}
+\left| I_0 \right| = \left| \dfrac{U_s}{R_s+\mathrm{j}\omega_1L_{ls}+\mathrm{j}\omega_1L_m} \right| = 4.48\ \mathrm{A}
+\end{equation}
+
+(4)临界转差率为
+\begin{equation}
+s_m = \frac{R_r^{'}}{\sqrt{R_s^2+\omega_1^2(L_{ls}+L_{lr}^{'})^2}}=0.1220
+\end{equation}
+
+临界转矩为
+\begin{equation}
+T_{em}=\dfrac{3pU_s^2}{2\omega_1(R_s+\sqrt{R_s^2+omega_1^2(L_{ls}+L_{lr})^2})} = 464.90\ (\mathrm{N·m})
+\end{equation}
+
+机械特性曲线如图~\ref{Fig:MechCurve}所示。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=12.557cm]{Fig_T_s.pdf} % 设置宽度保持字号不变
+\caption{异步电机的机械特性}\label{Fig:MechCurve}
+\end{figure}
 
 \bibliographystyle{thubib}
 \bibliography{refs}
 \end{document}
 
 %%% Local Variables:
-%%% mode: xelatex
 %%% TeX-master: t
 %%% End:
