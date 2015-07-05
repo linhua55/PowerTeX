@@ -9,6 +9,8 @@
 /master.blg
 /master.fdb_latexmk
 /master.fls
-/.IMCal.m.swp
+*.swp
 *.m~
 /.DS_Store
+/Matlab/*.swp
+/*/*.DS_Store

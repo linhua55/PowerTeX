@@ -102,60 +102,81 @@
 \subsubsection{解答}
 (1) 异步电机T形等效电路如图~\ref{Fig:TCircuit}所示。
 \begin{figure}[htbp]
-\centering
-\begin{circuitikz}[scale=1.2]
-\draw 
-(0,0) node[anchor=east] {}
-to [short, o-] (4,0)
-(4.7,3) to [L=$L_m$, i>^=$\dot{I_0}$] (4.7,0)
-(0,3) node[anchor=west] {}
-to [short, o-] (0.2,3)
-to [R=$R_s$, i=$\dot{I_s}$] (2.5,3)
-to [L=$L_{ls}$] (4,3)
-to [L=$L_{lr}^{'}$, i<=$\dot{I_r^{'}}$] (8,3)
-(8,0) to [vR, l_=$\frac{R_r^{'}}{s}$] (8,3)
-(8,0) to [short, -] (4,0);
-\begin{scope}[>=stealth]
-\draw [->] (0.2,2.5) -- node[right]{$\dot{U_s}$} (0.2,0.5);
-\end{scope}
-\end{circuitikz}
-\caption{异步电机T形等效电路图}\label{Fig:TCircuit}
+  \centering
+  \begin{circuitikz}[scale=1.2]
+    \draw 
+    (0,0) node[anchor=east] {}
+    to [short, o-] (4,0)
+    (4.7,3) to [L=$L_m$, i>^=$\dot{I_0}$] (4.7,0)
+    (0,3) node[anchor=west] {}
+    to [short, o-] (0.2,3)
+    to [R=$R_s$, i=$\dot{I_s}$] (2.5,3)
+    to [L=$L_{ls}$] (4,3)
+    to [L=$L_{lr}^{'}$, i<=$\dot{I_r^{'}}$] (8,3)
+    (8,0) to [vR, l_=$\frac{R_r^{'}}{s}$] (8,3)
+    (8,0) to [short, -] (4,0);
+    \begin{scope}[>=stealth]
+      \draw [->] (0.2,2.5) -- node[right]{$\dot{U_s}$} (0.2,0.5);
+    \end{scope}
+  \end{circuitikz}
+  \caption{异步电机T形等效电路图}\label{Fig:TCircuit}
 \end{figure}
 
-(2)额定运行时的转差率为$s_N=\dfrac{1000-960}{1000}=0.04$。
+(2)额定运行时的转差率为$s_{\mathrm{N}}=\dfrac{1000-960}{1000}=0.04$。
 
 定子额定电流为
 \begin{equation}
-\left| I_s \right| = \left| {\dfrac{U_s}{R_s+\mathrm{j}\omega_1L_{ls}+\mathrm{j}\omega_1L_m \sslash (R_r^{'}+\mathrm{j}\omega_1L_{lr})}} \right| = 28.66\ \mathrm{A}
+  \left| I_{\mathrm{s}} \right| = \left| {\dfrac{U_{\mathrm{s}}}{R_{\mathrm{s}}+\mathrm{j}\omega_1L_{\mathrm{ls}}+\mathrm{j}\omega_1L_{\mathrm{m}} \sslash (R_{\mathrm{r}}^{'}+\mathrm{j}\omega_1L_{\mathrm{lr}})}} \right| = 28.66\ \mathrm{A}
 \end{equation}
 
 额定电磁转矩为（忽略励磁电流）
 \begin{equation}
-T_e = \dfrac{3pU_s^2R_r^{'}s}{\omega_1[(sR_s+R_r^{'})^2+s^2\omega_1^2(L_{ls}+L_{lr})^2]} = 272.84\ (\mathrm{N·m})
+  T_{\mathrm{e}} = \dfrac{3pU_{\mathrm{s}}^2R_{\mathrm{r}}^{'}s}{\omega_1[(sR_{\mathrm{s}}+R_{\mathrm{r}}^{'})^2+s^2\omega_1^2(L_{\mathrm{ls}}+L_{\mathrm{lr}})^2]} = 272.84\ (\mathrm{N·m})
 \end{equation}
 
 (3)理想空载时的励磁电流为
 \begin{equation}
-\left| I_0 \right| = \left| \dfrac{U_s}{R_s+\mathrm{j}\omega_1L_{ls}+\mathrm{j}\omega_1L_m} \right| = 4.48\ \mathrm{A}
+  \left| I_0 \right| = \left| \dfrac{U_{\mathrm{s}}}{R_{\mathrm{s}}+\mathrm{j}\omega_1L_{\mathrm{ls}}+\mathrm{j}\omega_1L_{\mathrm{m}}} \right| = 4.48\ \mathrm{A}
 \end{equation}
 
 (4)临界转差率为
 \begin{equation}
-s_m = \frac{R_r^{'}}{\sqrt{R_s^2+\omega_1^2(L_{ls}+L_{lr}^{'})^2}}=0.1220
+  s_{\mathrm{m}} = \frac{R_{\mathrm{r}}^{'}}{\sqrt{R_{\mathrm{s}}^2+\omega_1^2(L_{\mathrm{ls}}+L_{\mathrm{lr}}^{'})^2}}=0.1220
 \end{equation}
 
 临界转矩为
 \begin{equation}
-T_{em}=\dfrac{3pU_s^2}{2\omega_1(R_s+\sqrt{R_s^2+omega_1^2(L_{ls}+L_{lr})^2})} = 464.90\ (\mathrm{N·m})
+  T_{\mathrm{em}}=\dfrac{3pU_{\mathrm{s}}^2}{2\omega_1(R_{\mathrm{s}}+\sqrt{R_{\mathrm{s}}^2+\omega_1^2(L_{\mathrm{ls}}+L_{\mathrm{lr}})^2})} = 464.90\ (\mathrm{N·m})
 \end{equation}
 
 机械特性曲线如图~\ref{Fig:MechCurve}所示。
 
 \begin{figure}[htbp]
-\centering
-\includegraphics[width=12.557cm]{Fig_T_s.pdf} % 设置宽度保持字号不变
-\caption{异步电机的机械特性}\label{Fig:MechCurve}
+  \centering
+  \includegraphics[width=12.557cm]{Fig_T_s.pdf} % 设置宽度保持字号不变
+  \caption{异步电机的机械特性}\label{Fig:MechCurve}
 \end{figure}
+
+\subsection{第2题}
+\subsubsection{题目}
+异步电动机参数如第1题所示，画出调压调速在$\dfrac{1}{2}U_{\mathrm{N}}$和$\dfrac{2}{3}U_{\mathrm{N}}$时的机械特性，计算临界转差率$s_{\mathrm{m}}$和临界转矩$T_{\mathrm{m}}$，分析气隙磁通的变化。分析在恒转矩负载情况下，调压调速的稳定运行范围。
+\subsubsection{解答}
+由于临界转差率$s_{\mathrm{m}} = \frac{R_{\mathrm{r}}^{'}}{\sqrt{R_{\mathrm{s}}^2+\omega_1^2(L_{\mathrm{ls}}+L_{\mathrm{lr}}^{'})^2}}$，因此在不同电压下，临界转差率不变。
+
+临界电磁转矩为
+\begin{align}
+  T_{\mathrm{m}}(U=\frac{1}{2}U_{\mathrm{N}}) = 116.22 (\mathrm{N·m}) \\
+  T_{\mathrm{m}}(U=\frac{2}{3}U_{\mathrm{N}}) = 206.62 (\mathrm{N·m})
+\end{align}
+
+气隙磁通公式为
+\begin{equation}
+  \Phi_{\mathrm{m}}\approx\frac{U_{\mathrm{s}}}{4.44f_1N_{\mathrm{s}}k_{\mathrm{N}_{\mathrm{s}}}}}
+\end{equation}
+
+因此，电压下降将导致气隙磁通减小。
+
+对恒转矩负载而言，调速范围为额定电压下稳态运行时的转差率对应的转速与临界转差率对应的转速之间。
 
 \bibliographystyle{thubib}
 \bibliography{refs}
