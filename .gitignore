@@ -14,3 +14,9 @@
 /.DS_Store
 /Matlab/*.swp
 /*/*.DS_Store
+/Equations/master.aux
+/Equations/master.log
+/Equations/master.out
+/Equations/master.pdf
+/Equations/master.synctex.gz
+/Equations/master.toc
