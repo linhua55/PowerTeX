@@ -1,4 +1,4 @@
-function dy = sphbc( t, y, L, m, V_DC, V_s, R )
+function dy = Exp_2_1sphbc( t, y, L, m, V_DC, V_s, R )
 %sphbc Summary of this function goes here
 %   Detailed explanation goes here
 

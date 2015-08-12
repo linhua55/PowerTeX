@@ -15,7 +15,7 @@ i_0 = (V_t - V_s) / R;
 % 第一阶段
 t_1 = 0.2;
 t = 0:t_int:t_1;
-[t_12, y_12] = ode45(@(t,y) sphbc(t, y, L, m, V_DC, V_s, R), t, i_0);
+[t_12, y_12] = ode45(@(t,y) Exp_2_1sphbc(t, y, L, m, V_DC, V_s, R), t, i_0);
 
 t_rslt = t_12;
 I_rslt = y_12;
