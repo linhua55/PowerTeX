@@ -7,11 +7,16 @@
 
 #### 书籍信息
 书名：Voltage-Sourced Converters in Power Systems
+
 作者：Amirnaser Yazdani & Reza Iravani
+
 出版年份：2010
+
 出版社：IEEE PRESS & WILEY
+
 ISBN：9780470521564
 
 #### 仿真模型
 第2章：Example 2.1
+
 第3章：Example 3.1
