@@ -15,7 +15,7 @@ i_0 = (V_t - V_s) / R;
 % 第一阶段
 t_1 = 0.2;
 t = 0:t_int:t_1;
-[t_12, y_12] = ode45(@(t,y) Exp_2_1sphbc(t, y, L, m, V_DC, V_s, R), t, i_0);
+[t_12, y_12] = ode45(@(t,y) Exp_2_1_sphbc(t, y, L, m, V_DC, V_s, R), t, i_0);
 
 t_rslt = t_12;
 I_rslt = y_12;
@@ -25,7 +25,7 @@ m = 0.685;
 
 t_2 = 0.7;
 t = t_1:t_int:t_2;
-[t_23, y_23] = ode45(@(t,y) sphbc(t, y, L, m, V_DC, V_s, R), t, y_12(end));
+[t_23, y_23] = ode45(@(t,y) Exp_2_1_sphbc(t, y, L, m, V_DC, V_s, R), t, y_12(end));
 
 t_rslt = [t_rslt; t_23(2:end)];
 I_rslt = [I_rslt; y_23(2:end)];
@@ -35,7 +35,7 @@ V_s = 415;
 
 t_3 = 1.5;
 t = t_2:t_int:t_3;
-[t_34, y_34] = ode45(@(t,y) sphbc(t, y, L, m, V_DC, V_s, R), t, y_23(end));
+[t_34, y_34] = ode45(@(t,y) Exp_2_1_sphbc(t, y, L, m, V_DC, V_s, R), t, y_23(end));
 
 t_rslt = [t_rslt; t_34(2:end)];
 I_rslt = [I_rslt; y_34(2:end)];
@@ -45,7 +45,7 @@ V_DC = 605 * 2;
 
 t_4 = 2;
 t = t_3:t_int:t_4;
-[t_45, y_45] = ode45(@(t,y) sphbc(t, y, L, m, V_DC, V_s, R), t, y_34(end));
+[t_45, y_45] = ode45(@(t,y) Exp_2_1_sphbc(t, y, L, m, V_DC, V_s, R), t, y_34(end));
 
 t_rslt = [t_rslt; t_45(2:end)];
 I_rslt = [I_rslt; y_45(2:end)];
